@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeekIvo - Par Mani</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Ikonas -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Pielāgoti Stili -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Lasīšanas Progresa Josla -->
+    <div id="scroll-progress"></div>
+
+    <!-- Galvene (Header) & Navigācija -->
+    <header>
+        <a href="index.html" class="logo">WeekIvo <i class="fa-solid fa-code"></i></a>
+        
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="index.html#klatiene">Klātiene</a></li>
+                <li><a href="index.html#attalinati">E-studijas</a></li>
+                <li><a href="index.html#prakse">Prakse</a></li>
+                <li><a href="index.html#arpusstudiju">Aktivitātes</a></li>
+                <li><a href="par_mani.html" class="active-nav">Par Mani</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-actions">
+            <button id="theme-toggle" class="theme-switch" aria-label="Pārslēgt tumšo/gaišo režīmu">
+                <i class="fa-solid fa-circle-half-stroke"></i>
+            </button>
+            <button class="mobile-menu-btn" aria-label="Atvērt izvēlni">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Par Mani saturs -->
+    <section class="about-page-section">
+        <div class="container">
+            <h1 class="section-title text-center">Ivo <span class="highlight">Allens</span></h1>
+            
+            <div class="about-grid">
+                <!-- Kreisā puse: Bilde un pamatinfo -->
+                <div class="about-sidebar card reveal">
+                    <div class="profile-avatar-large">
+                        <i class="fa-solid fa-user-astronaut"></i>
+                    </div>
+                    <h2>LU Datorikas Students</h2>
+                    <p class="text-muted text-center" style="margin-bottom: 2rem;">Rīga, Latvija</p>
+                    
+                    <div class="contact-links-vertical">
+                        <a href="#" class="btn btn-primary"><i class="fa-solid fa-envelope"></i> Sūtīt ziņu</a>
+                        <a href="#" class="btn btn-outline"><i class="fa-brands fa-github"></i> GitHub: @ivoall</a>
+                        <a href="#" class="btn btn-outline"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                    </div>
+                </div>
+
+                <!-- Labā puse: Apraksts un prasmes -->
+                <div class="about-content">
+                    <div class="card reveal mb-4">
+                        <h3><i class="fa-solid fa-hand-wave"></i> Par mani</h3>
+                        <p>Sveiki! Esmu topošais programmatūras inženieris. Man patīk veidot modernas un inovatīvas tīmekļa lietotnes, meklēt risinājumus sarežģītām problēmām un pastāvīgi apgūt jaunas tehnoloģijas.</p>
+                        <p>Šo mājaslapu izveidoju kā patstāvīgo darbu, lai parādītu savas ikdienas gaitas, dalot laiku starp Universitātes lekcijām, pašmācību un pirmajiem soļiem IT nozarē.</p>
+                    </div>
+
+                    <div class="card reveal">
+                        <h3><i class="fa-solid fa-code-branch"></i> Manas Prasmes & Tehnoloģijas</h3>
+                        <div class="skills-showcase mt-2">
+                             <div class="skill-category">
+                                 <h4>Front-End</h4>
+                                 <div class="skills-tags left-align">
+                                     <span class="tag"><i class="fa-brands fa-html5"></i> HTML5</span>
+                                     <span class="tag"><i class="fa-brands fa-css3-alt"></i> CSS3</span>
+                                     <span class="tag"><i class="fa-brands fa-js"></i> JavaScript</span>
+                                     <span class="tag"><i class="fa-brands fa-react"></i> React (Pamati)</span>
+                                 </div>
+                             </div>
+                             <div class="skill-category mt-3">
+                                 <h4>Back-End & Rīki</h4>
+                                 <div class="skills-tags left-align">
+                                     <span class="tag"><i class="fa-brands fa-python"></i> Python</span>
+                                     <span class="tag"><i class="fa-solid fa-database"></i> SQL</span>
+                                     <span class="tag"><i class="fa-brands fa-git-alt"></i> Git</span>
+                                     <span class="tag"><i class="fa-brands fa-linux"></i> Linux</span>
+                                 </div>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 WeekIvo - Ivo Allens ia23031</p>
+            <p><small>Darbs izstrādāts Latvijas Universitātes kursa "Tīmekļa dizaina pamati" patstāvīgā darba ietvaros</small></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

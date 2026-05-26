@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeekIvo - Studenta nedēļa</title>
+    <meta name="description" content="Viena darba nedēļa Datorikas nodaļas studenta dzīvē. Klātienes lekcijas, e-studijas un prakses ikdiena.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Ikonas -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Pielāgoti Stili -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Lasīšanas Progresa Josla -->
+    <div id="scroll-progress"></div>
+
+    <!-- Galvene (Header) & Navigācija -->
+    <header>
+        <a href="#sakums" class="logo">WeekIvo <i class="fa-solid fa-code"></i></a>
+        
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="#klatiene">Klātiene</a></li>
+                <li><a href="#attalinati">E-studijas</a></li>
+                <li><a href="#prakse">Prakse</a></li>
+                <li><a href="#arpusstudiju">Aktivitātes</a></li>
+                <li><a href="par_mani.html">Par Mani</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-actions">
+            <button id="theme-toggle" class="theme-switch" aria-label="Pārslēgt tumšo/gaišo režīmu">
+                <i class="fa-solid fa-circle-half-stroke"></i>
+            </button>
+            <button class="mobile-menu-btn" aria-label="Atvērt izvēlni">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- 1. Sākums -->
+    <section id="sakums" class="hero-section">
+        <canvas id="hero-canvas"></canvas> <!-- Interaktīvais Kursors -->
+        <div class="container hero-content">
+            <div class="hero-text-area">
+                <h1>Datorikas nodaļas <span class="highlight">studenta ikdiena</span></h1>
+                <p>Esiet sveicināti "WeekIvo"! Šeit es dokumentēšu tipisku savu darba nedēļu satilpinot gan klātienes lekcijas Latvijas Universitātē, gan attālinātos darbus, praksi ofisā un brīvo laiku.</p>
+                <div class="hero-buttons">
+                    <a href="#klatiene" class="btn btn-primary">Skatīt Nedēļu</a>
+                    <a href="par_mani.html" class="btn btn-secondary">Iepazīt Autoru</a>
+                </div>
+            </div>
+            <!-- Šeit varētu papildināt ar kādu abstrakciju vai ilustrāciju vēlāk -->
+        </div>
+    </section>
+
+    <!-- 2. Klātienes darbs -->
+    <section id="klatiene" class="content-section zig-zag">
+        <div class="container">
+            <h2 class="section-title">Klātienes Diena: <br>Lekcijas un Laboratorijas</h2>
+            <div class="content-wrapper">
+                <div class="text-block card">
+                     <h3>No rīta līdz pēcpusdienai Universitātē</h3>
+                     <p>Diena sākas agri, dodoties uz Latvijas Universitātes Akadēmisko centru. Klātienē apgūstam tādus priekšmetus kā <em>Datu bāzes</em> un <em>Programmatūras inženierija</em>.</p>
+                     <ul>
+                         <li><i class="fa-solid fa-chalkboard-user"></i> Algoritmu un datu struktūru lekcijas lielajā auditorijā</li>
+                         <li><i class="fa-solid fa-laptop-code"></i> Praktiskie darbi Linux laboratorijās, rakstot kodu un konfigurējot serverus</li>
+                         <li><i class="fa-solid fa-mug-hot"></i> Kafijas pauze un diskusijas ar kursabiedriem</li>
+                     </ul>
+                </div>
+                <div class="visual-placeholder reveal">
+                    <img src="klatiene_lecture.png" alt="Klātienes lekcija auditorijā ar pasniedzēju" class="section-image">
+                </div>
+            </div>
+
+            <!-- Interaktīvais Lekciju Saraksts -->
+            <div class="timetable-container mt-4 reveal">
+                 <div class="timetable-header">
+                     <h3><i class="fa-regular fa-calendar-days"></i> Dinamiskais Nedēļas Grafiks</h3>
+                     <div class="day-filters mt-4" id="day-filters">
+                         <button class="day-btn active" data-day="pirmdiena">Pirmdiena</button>
+                         <button class="day-btn" data-day="otrdiena">Otrdiena</button>
+                         <button class="day-btn" data-day="tresdiena">Trešdiena</button>
+                         <button class="day-btn" data-day="ceturtdiena">Ceturtdiena</button>
+                         <button class="day-btn" data-day="piektdiena">Piektdiena</button>
+                     </div>
+                 </div>
+                 <div class="timetable-content" id="timetable-content">
+                     <!-- Saturs tiks ģenerēts ar JavaScript -->
+                 </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 3. Attālinātais darbs -->
+    <section id="attalinati" class="content-section zig-zag reverse">
+        <div class="container">
+            <h2 class="section-title text-right">Attālināti: <br>E-studijas & Pašmācība</h2>
+            <div class="content-wrapper">
+                <div class="visual-placeholder reveal">
+                    <img src="attalinati_home.png" alt="Mājīgs ofiss attālinātajam darbam ar portatīvo datoru" class="section-image">
+                </div>
+                <div class="text-block card">
+                    <h3>Projekti un Uzdevumi e-studijās</h3>
+                    <p>Ne visas dienas jābrauc uz fakultāti. Pāris dienas nedēļā noris intensīvs darbs tiešsaistē, risinot mājasdarbus un strādājot pie grupu projektiem.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-video"></i> Tiešsaistes Teams lekcijas izvēles kursos</li>
+                        <li><i class="fa-solid fa-book-open"></i> Iepriekšējo lekciju materiālu un video ierakstu caurskatīšana LU e-studiju portālā</li>
+                        <li><i class="fa-brands fa-github"></i> Koda versiju uzturēšana un pull request pārskatīšana kursa projektam</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Prakses darbs -->
+    <section id="prakse" class="content-section zig-zag">
+        <div class="container">
+            <h2 class="section-title">Prakse: <br>Ikdiena IT Uzņēmumā</h2>
+            <div class="content-wrapper">
+                <div class="text-block card">
+                    <h3>Praktisku iemaņu gūšana ražošanā</h3>
+                    <p>Lai teoriju pārvērstu prasmēs, liela daļa nedēļas tiek aizvadīta kā "Junior Developer" uzņēmumā. Šī ir iespēja ieraudzīt, kā koda rindiņas "atdzīvojas" īstos produktos.</p>
+                     <ul>
+                        <li><i class="fa-solid fa-users-gear"></i> Rīta *Daily Standup* sapulces ar Agile komandu</li>
+                        <li><i class="fa-solid fa-bug"></i> Kļūdu (bug) labošana iekšējās sistēmās</li>
+                        <li><i class="fa-solid fa-laptop"></i> Pāra programmēšana (Pair-Programming) ar vecākajiem kolēģiem</li>
+                     </ul>
+                </div>
+                <div class="visual-placeholder reveal">
+                    <img src="prakse_office.png" alt="Prakse mūsdienīgā IT ofisā ar vairākiem ekrāniem" class="section-image">
+                </div>
+            </div>
+
+            <!-- Interaktīvā Mini Spēle -->
+            <div class="mini-game-container mt-4 card reveal">
+                <div class="mini-game-header text-center">
+                    <h3><i class="fa-solid fa-gamepad"></i> Nodarba: Izķer Kļūdas Kodā!</h3>
+                    <p>Svarīga prakses daļa ir programmatūras <em>Bugu</em> (kļūdu) labošana. Palīdzi komandai - klikšķini uz sarkanajiem kukaiņiem pirms tie izbēg!</p>
+                </div>
+                <div class="mini-game-board" id="bug-game-board">
+                    <div class="score-display">Salaboti: <span id="bug-score">0</span></div>
+                    <div class="game-overlay" id="game-overlay">
+                        <button id="start-game-btn" class="btn btn-primary">Sākt Darbu (15 sek)</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 5. Ārpusstudiju aktivitātes (GRID versija) -->
+    <section id="arpusstudiju" class="content-section">
+        <div class="container">
+            <h2 class="section-title text-center">Ārpus Koda: <br>Kopiena un Pasākumi</h2>
+            <div class="activities-grid mt-4">
+                
+                <div class="card reveal text-center">
+                    <div class="grid-icon"><i class="fa-solid fa-microphone-lines"></i></div>
+                    <h3>Studentu Padome</h3>
+                    <p>Dalība LU SP un fakultātes domnieku sapulcēs. Lieliska iespēja attīstīt līderības un komunikācijas prasmes ārpus lekcijām.</p>
+                </div>
+                
+                <div class="card reveal text-center" style="transition-delay: 0.15s;">
+                    <div class="grid-icon"><i class="fa-solid fa-chess-knight"></i></div>
+                    <h3>Galda Spēles</h3>
+                    <p>Kad monitors tiek izslēgts, datoriķi satiekas pie galda un izaicina viens otru taktiskās un aizraujošās kāršu vai dēļu spēlēs piektdienu vakaros.</p>
+                </div>
+                
+                <div class="card reveal text-center" style="transition-delay: 0.3s;">
+                    <div class="grid-icon"><i class="fa-solid fa-rocket"></i></div>
+                    <h3>Vietējie Hakatoni</h3>
+                    <p>Nedēļas nogales izaicinājumi. Ideju ģenerēšana, negulētas naktis un prototipu izstrāde kopā ar līdzīgi domājošiem entuziastiem.</p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 WeekIvo - Ivo Allens ia23031</p>
+            <p><small>Darbs izstrādāts Latvijas Universitātes kursa "Tīmekļa dizaina pamati" patstāvīgā darba ietvaros</small></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
