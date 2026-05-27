@@ -392,4 +392,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // 9. Peldošās ikonas Hero fonam
+    const heroIconsContainer = document.getElementById('hero-floating-icons');
+    if (heroIconsContainer) {
+        // Datorikas/IT tematikas ikonas
+        const icons = ['fa-code', 'fa-laptop-code', 'fa-database', 'fa-server', 'fa-bug', 'fa-microchip', 'fa-network-wired', 'fa-terminal', 'fa-mug-hot'];
+        const iconCount = window.innerWidth < 768 ? 12 : 30; // Mazāk ikonu telefonos, lai saglabātu veiktspēju
+        
+        for (let i = 0; i < iconCount; i++) {
+            const iconEl = document.createElement('i');
+            const randomIcon = icons[Math.floor(Math.random() * icons.length)];
+            iconEl.className = `fa-solid ${randomIcon} float-icon`;
+            
+            // Nejauši izmēri un novietojums
+            const size = Math.random() * 2 + 1; // 1rem līdz 3rem
+            const left = Math.random() * 100; // 0% līdz 100% no ekrāna platuma
+            const duration = Math.random() * 20 + 15; // 15s līdz 35s ilgums
+            const delay = Math.random() * 20; // 0s līdz 20s aizture (mīnuss, lai sāk uzreiz fāzē)
+            
+            iconEl.style.fontSize = `${size}rem`;
+            iconEl.style.left = `${left}%`;
+            iconEl.style.animationDuration = `${duration}s`;
+            iconEl.style.animationDelay = `-${delay}s`;
+            
+            heroIconsContainer.appendChild(iconEl);
+        }
+    }
+
 });
