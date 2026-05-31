@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const numPoints = 25; // Cik garš ir diegs
         let mouse = { x: width / 2, y: height / 2 };
         let isMoving = false; // Pārbauda vai pele kustas Hero zonā
-        let isHeroCursorActive = window.innerWidth >= 768;
+        let isHeroCursorActive = window.matchMedia('(pointer: fine) and (min-width: 900px)').matches;
 
         // Inicializē punktus
         for (let i = 0; i < numPoints; i++) {
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         window.addEventListener('resize', () => {
             const wasActive = isHeroCursorActive;
-            isHeroCursorActive = window.innerWidth >= 768;
+            isHeroCursorActive = window.matchMedia('(pointer: fine) and (min-width: 900px)').matches;
             updateCanvasSize();
             setCanvasVisibility();
             if (isHeroCursorActive && !wasActive) {
