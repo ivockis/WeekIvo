@@ -699,6 +699,11 @@ footer small {
 
 .mini-game-header {
     margin-bottom: 2rem;
+    text-align: left;
+}
+
+.mini-game-header p {
+    text-align: left;
 }
 
 /* 8. Dinamiskais Nedēļas Grafiks */
