@@ -392,6 +392,12 @@ section {
     /* Ļauj klikšķināt cauri kanvam uz teksta/pogām */
 }
 
+@media (max-width: 767px) {
+    #hero-canvas {
+        display: none;
+    }
+}
+
 .hero-content {
     z-index: 3;
     /* Pārrakstām virs canvas un overlay */
@@ -917,6 +923,8 @@ footer small {
     font-weight: bold;
     z-index: 5;
 }
+
+/* (Reading task styles removed) */
 
 .bug-icon {
     position: absolute;

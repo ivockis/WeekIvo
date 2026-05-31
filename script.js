@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const numPoints = 25; // Cik garš ir diegs
         let mouse = { x: width / 2, y: height / 2 };
         let isMoving = false; // Pārbauda vai pele kustas Hero zonā
+        let isHeroCursorActive = window.innerWidth >= 768;
 
         // Inicializē punktus
         for (let i = 0; i < numPoints; i++) {
@@ -21,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Peles klausītāji tikai virs Hero sekcijas
         const heroSection = document.querySelector('.hero-section');
         heroSection.addEventListener('mousemove', (e) => {
+            if (!isHeroCursorActive) return;
             isMoving = true;
             // Korekcija ja lapu skrollē
             const rect = canvas.getBoundingClientRect();
@@ -28,12 +30,30 @@ document.addEventListener('DOMContentLoaded', () => {
             mouse.y = e.clientY - rect.top;
         });
         heroSection.addEventListener('mouseleave', () => {
+            if (!isHeroCursorActive) return;
             isMoving = false; // Pele iziet, ļaujam vilkties uz pēdējo punktu vai centrēties lēnām
         });
 
-        window.addEventListener('resize', () => {
+        function updateCanvasSize() {
             width = canvas.width = window.innerWidth;
             height = canvas.height = document.querySelector('.hero-section').offsetHeight;
+        }
+
+        function setCanvasVisibility() {
+            canvas.style.display = isHeroCursorActive ? 'block' : 'none';
+            if (!isHeroCursorActive) {
+                ctx.clearRect(0, 0, width, height);
+            }
+        }
+
+        window.addEventListener('resize', () => {
+            const wasActive = isHeroCursorActive;
+            isHeroCursorActive = window.innerWidth >= 768;
+            updateCanvasSize();
+            setCanvasVisibility();
+            if (isHeroCursorActive && !wasActive) {
+                animateCanvas();
+            }
         });
 
         // Tēmas krāsu reakcija kanvai
@@ -44,6 +64,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Animācijas Cikls
         function animateCanvas() {
+            if (!isHeroCursorActive) {
+                ctx.clearRect(0, 0, width, height);
+                return;
+            }
+
             ctx.clearRect(0, 0, width, height);
 
             // Pirmais punkts vienmēr seko pelei
@@ -88,7 +113,10 @@ document.addEventListener('DOMContentLoaded', () => {
             requestAnimationFrame(animateCanvas);
         }
 
-        animateCanvas();
+        setCanvasVisibility();
+        if (isHeroCursorActive) {
+            animateCanvas();
+        }
     }
     // 1. Tēmas (Dark/Light Mode) Pārslēdzējs
     const themeSwitchBtn = document.getElementById('theme-toggle');
