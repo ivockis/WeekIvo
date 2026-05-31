@@ -402,7 +402,31 @@ section {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
-    align-items: center;
+    align-items: stretch; /* Stretch children to equal row height */
+}
+
+/* Make the two columns fill the row height so image and text match */
+.content-wrapper > .text-block,
+.content-wrapper > .visual-placeholder {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* On wider screens, let the visual placeholder and its image fill the full height.
+   Keep the original aspect ratio behaviour on small screens. */
+@media (min-width: 900px) {
+    .content-wrapper > .visual-placeholder {
+        aspect-ratio: auto;
+        height: 100%;
+    }
+
+    .content-wrapper > .visual-placeholder .section-image,
+    .content-wrapper > .visual-placeholder .profile-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 }
 
 .text-block h3 {
@@ -507,7 +531,14 @@ section {
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 3rem;
-    align-items: start;
+    align-items: stretch; /* Tagad abi grid elementi būs vienāda augstuma */
+}
+
+.profile-sidebar {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Iecentrē saturu vertikāli pa vidu garajā rāmī */
 }
 
 .profile-avatar-large {
@@ -532,11 +563,47 @@ section {
     border-radius: 50%;
 }
 
-.about-sidebar h2 {
+.profile-name {
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 0.2rem;
     color: var(--text-color);
-    margin-bottom: 0.5rem;
+}
+
+.profile-name .highlight {
+    color: var(--accent-color);
+}
+
+.profile-title {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.profile-details {
+    display: grid;
+    grid-template-columns: max-content;
+    justify-content: center;
+    gap: 0.8rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.5rem;
+}
+
+.profile-details p {
+    margin: 0;
+    color: var(--text-color);
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.profile-details i {
+    color: var(--accent-color);
+    width: 20px;
+    text-align: center;
 }
 
 .contact-links-vertical {
